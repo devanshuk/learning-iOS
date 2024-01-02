@@ -16,11 +16,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        diceImageViewOne.image = UIImage(named: "DiceSix")
-        diceImageViewTwo.image = UIImage(named: "DiceTwo")
     }
 
-
+    @IBAction func rollButtonPressed(_ sender: UIButton) {
+        diceImageViewOne.image = UIImage(named: "DiceSix")
+        diceImageViewTwo.image = UIImage(named: "DiceOne")
+    }
+    
 }
 
