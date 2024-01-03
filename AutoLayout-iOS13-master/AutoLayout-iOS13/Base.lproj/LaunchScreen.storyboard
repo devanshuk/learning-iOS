@@ -23,15 +23,23 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppBreweryLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Iff-9M-PPJ">
                                 <rect key="frame" x="112" y="418.5" width="190" height="59"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Learn to code by making apps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DeO-To-s8d">
+                                <rect key="frame" x="92.5" y="507.5" width="229" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="fEb-pf-Q9X" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="FzU-FX-BHb"/>
                             <constraint firstItem="Iff-9M-PPJ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="KHj-Dl-HV6"/>
+                            <constraint firstItem="DeO-To-s8d" firstAttribute="top" secondItem="Iff-9M-PPJ" secondAttribute="bottom" constant="30" id="MlV-hm-cSi"/>
                             <constraint firstItem="fEb-pf-Q9X" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailing" id="Qjd-Qr-Lza"/>
                             <constraint firstItem="Iff-9M-PPJ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="lqZ-Y4-tvN"/>
                             <constraint firstAttribute="bottom" secondItem="fEb-pf-Q9X" secondAttribute="bottom" id="r0s-FT-6q9"/>
+                            <constraint firstItem="DeO-To-s8d" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="tJB-ye-Zhw"/>
                             <constraint firstItem="fEb-pf-Q9X" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="yMJ-BK-CB7"/>
                         </constraints>
                     </view>
