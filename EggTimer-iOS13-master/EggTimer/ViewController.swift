@@ -10,7 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let boilTimeDict = ["Soft" : 5*60, "Medium": 8*60, "Hard": 12*60]
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    let boilTimeDict = ["Soft" : 5/*5*60*/, "Medium": 8/*8*60*/, "Hard": 12/*12*60*/]
     var timer: Timer?
     
     @IBAction func hardnessSelected(_ sender: UIButton) {
@@ -41,6 +43,7 @@ class ViewController: UIViewController {
                 secondsRemaining -= 1
             } else {
                 timer.invalidate()
+                self.titleLabel.text = "Done"
             }
         }
     }
