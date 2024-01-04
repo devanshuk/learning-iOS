@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
     
@@ -16,6 +17,7 @@ class ViewController: UIViewController {
     let boilTimeDict = ["Soft" : 5/*5*60*/, "Medium": 8/*8*60*/, "Hard": 12/*12*60*/]
     var timer: Timer?
     var selectedHardness: String?
+    var player: AVAudioPlayer!
     
     @IBAction func hardnessSelected(_ sender: UIButton) {
         resetTimer()
@@ -69,8 +71,15 @@ class ViewController: UIViewController {
                 timer.invalidate()
                 self.progressView.setProgress(1.0, animated: true)
                 self.titleLabel.text = "Done"
+                self.playCompletionSound()
             }
         }
+    }
+    
+    func playCompletionSound() {
+        guard let url = Bundle.main.url(forResource: "alarm_sound", withExtension: "wav") else { return }
+        player = try! AVAudioPlayer(contentsOf: url)
+        player.play()
     }
     
     
