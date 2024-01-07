@@ -19,9 +19,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var falseButton: UIButton!
     
     let quiz = [
-        Question(label: "Four + Two equals Six", answer: "True"),
-        Question(label: "Five - Three is greater than One", answer: "True"),
-        Question(label: "Three + Eight is less than Ten", answer: "False")
+        Question(label: "A slug's blood is green.", answer: "True"),
+        Question(label: "Approximately one quarter of human bones are in the feet.", answer: "True"),
+        Question(label: "The total surface area of two human lungs is approximately 70 square metres.", answer: "True"),
+        Question(label: "In West Virginia, USA, if you accidentally hit an animal with your car, you are free to take it home to eat.", answer: "True"),
+        Question(label: "In London, UK, if you happen to die in the House of Parliament, you are technically entitled to a state funeral, because the building is considered too sacred a place.", answer: "False"),
+        Question(label: "It is illegal to pee in the Ocean in Portugal.", answer: "True"),
+        Question(label: "You can lead a cow down stairs but not up stairs.", answer: "False"),
+        Question(label: "Google was originally called 'Backrub'.", answer: "True"),
+        Question(label: "Buzz Aldrin's mother's maiden name was 'Moon'.", answer: "True"),
+        Question(label: "The loudest sound produced by any animal is 188 decibels. That animal is the African Elephant.", answer: "False"),
+        Question(label: "No piece of square dry paper can be folded in half more than 7 times.", answer: "False"),
+        Question(label: "Chocolate affects a dog's heart and nervous system; a few ounces are enough to kill a small dog.", answer: "True")
     ]
     
     var questionNumber = 0
