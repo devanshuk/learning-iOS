@@ -51,16 +51,29 @@ class ViewController: UIViewController {
         if(questionNumber < quiz.count - 1) {
             questionNumber += 1
             loadQuestionNumber(questionNumber)
+            delayBlockFor(milliSeconds: 500, block: {
+                self.trueButton.backgroundColor = UIColor.clear
+                self.falseButton.backgroundColor = UIColor.clear
+            })
         }
     }
     
     
     @IBAction func buttonPressed(_ sender: UIButton) {
         if(sender.currentTitle == quiz[questionNumber].answer) {
+            sender.backgroundColor = UIColor.green
             nextQuestion()
         } else {
             // show error
+            sender.backgroundColor = UIColor.red
         }
+    }
+    
+    func delayBlockFor(milliSeconds: Int, block: @escaping () -> Void) {
+        DispatchQueue.main.asyncAfter(
+            deadline: .now() + DispatchTimeInterval.milliseconds(milliSeconds),
+            execute: block
+        )
     }
     
 
