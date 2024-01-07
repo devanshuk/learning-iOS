@@ -1,22 +1,14 @@
 //
-//  ViewController.swift
+//  QuizBrain.swift
 //  Quizzler-iOS13
 //
-//  Created by Angela Yu on 12/07/2019.
-//  Copyright © 2019 The App Brewery. All rights reserved.
+//  Created by Devanshu Kaushik on 07/01/24.
+//  Copyright © 2024 The App Brewery. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class ViewController: UIViewController {
-    
-    @IBOutlet weak var questionLabel: UILabel!
-    
-    @IBOutlet weak var progressBar: UIProgressView!
-    
-    @IBOutlet weak var trueButton: UIButton!
-    
-    @IBOutlet weak var falseButton: UIButton!
+struct QuizBrain {
     
     let quiz = [
         Question(label: "A slug's blood is green.", answer: "True"),
@@ -33,49 +25,27 @@ class ViewController: UIViewController {
         Question(label: "Chocolate affects a dog's heart and nervous system; a few ounces are enough to kill a small dog.", answer: "True")
     ]
     
-    var questionNumber = 0
+    private var questionNumber = 0
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        progressBar.progress = 0.0
-        loadQuestionNumber(0)
+    func getCurrentQuestion() -> Question {
+        return quiz[questionNumber]
     }
     
-    func loadQuestionNumber(_ num: Int) {
-        questionLabel.text = quiz[num].label
-    }
-    
-    func nextQuestion() {
-        progressBar.progress = Float(questionNumber+1)/Float(quiz.count)
+    mutating func nextQuestion() {
         if(questionNumber < quiz.count - 1) {
             questionNumber += 1
-            loadQuestionNumber(questionNumber)
-            delayBlockFor(milliSeconds: 500, block: {
-                self.trueButton.backgroundColor = UIColor.clear
-                self.falseButton.backgroundColor = UIColor.clear
-            })
-        }
-    }
-    
-    
-    @IBAction func buttonPressed(_ sender: UIButton) {
-        if(sender.currentTitle == quiz[questionNumber].answer) {
-            sender.backgroundColor = UIColor.green
-            nextQuestion()
         } else {
-            // show error
-            sender.backgroundColor = UIColor.red
+            questionNumber = 0
         }
     }
     
-    func delayBlockFor(milliSeconds: Int, block: @escaping () -> Void) {
-        DispatchQueue.main.asyncAfter(
-            deadline: .now() + DispatchTimeInterval.milliseconds(milliSeconds),
-            execute: block
-        )
+    func getProgress() -> Float {
+        return Float(questionNumber+1)/Float(quiz.count)
     }
     
-
+    func isCorrect(answer: String) -> Bool {
+        return getCurrentQuestion().answer == answer
+    }
+    
+    
 }
-
