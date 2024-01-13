@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var falseButton: UIButton!
     
-    var brain = QuizBrain()
+    var quizBrain = QuizBrain()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,10 +28,10 @@ class ViewController: UIViewController {
     }
     
     func nextQuestion() {
-        brain.nextQuestion()
+        quizBrain.nextQuestion()
         delayBlockFor(milliSeconds: 500, block: {
             self.updateQuestion()
-            self.updateProgress(progress: self.brain.getProgress())
+            self.updateProgress(progress: self.quizBrain.getProgress())
             self.trueButton.backgroundColor = UIColor.clear
             self.falseButton.backgroundColor = UIColor.clear
         })
@@ -42,13 +42,14 @@ class ViewController: UIViewController {
     }
     
     func updateQuestion() {
-        questionLabel.text = brain.getCurrentQuestion().label
+        questionLabel.text = quizBrain.getQuestionText()
     }
  
     
     @IBAction func buttonPressed(_ sender: UIButton) {
         let userAnswer = sender.currentTitle ?? ""
-        if(brain.isCorrect(answer: userAnswer)) {
+        let userIsCorrect = quizBrain.isCorrect(answer: userAnswer)
+        if(userIsCorrect) {
             sender.backgroundColor = UIColor.green
             nextQuestion()
         } else {

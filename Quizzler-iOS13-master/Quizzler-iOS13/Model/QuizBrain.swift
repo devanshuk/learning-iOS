@@ -27,8 +27,8 @@ struct QuizBrain {
     
     private var questionNumber = 0
     
-    func getCurrentQuestion() -> Question {
-        return quiz[questionNumber]
+    func getQuestionText() -> String {
+        return quiz[questionNumber].label
     }
     
     mutating func nextQuestion() {
@@ -44,7 +44,7 @@ struct QuizBrain {
     }
     
     func isCorrect(answer: String) -> Bool {
-        return getCurrentQuestion().answer == answer
+        return quiz[questionNumber].answer == answer
     }
     
     
